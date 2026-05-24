@@ -18,13 +18,6 @@
             text-align: center;
         }
 
-        #webcam-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
         #startScreen, #gameScreen, #endScreen {
             order: 2;
             width: 50%;
@@ -75,7 +68,7 @@
     </div>
 
     <div id="gameScreen" hidden>
-        <h2>Zoek een pen!</h2>
+        <h2>Zoek een <span id="currentObject"></span>!</h2>
 
         <div class="border">
             ✊ Speler 1<br>

@@ -1,3 +1,18 @@
+let gameStateGlobal = "start";
+
+setState(gameStateGlobal);
+
+const objects = ["fles",
+    "sleutel",
+    "kop/tas",
+    "schaar",
+    "horloge",
+    "pen",
+    "rol toiletpapier",
+    "analoge wekker",
+    "munt",
+    "banaan"]
+
 let score = {
     player1: 0,
     player2: 0
@@ -18,17 +33,28 @@ function setState(state) {
     document.getElementById("gameScreen").hidden = true;
     document.getElementById("endScreen").hidden = true;
 
-    if (state === "start")
+    if (state === "start") {
         document.getElementById("startScreen").hidden = false;
+        gameStateGlobal = "start";
+    }
 
-    if (state === "playing")
+    if (state === "playing") {
         document.getElementById("gameScreen").hidden = false;
+        gameStateGlobal = "playing";
+    }
 
-    if (state === "end")
+    if (state === "end") {
         document.getElementById("endScreen").hidden = false;
+        gameStateGlobal = "end";
+    }
 }
 
-setState("start");
+function randomObject() {
+    return objects[Math.floor(Math.random() * objects.length)];
+}
+
+let currentObject = randomObject();
+
 
 
 
@@ -97,12 +123,17 @@ async function predict() {
         const classPrediction =
             prediction[i].className + ": " + prediction[i].probability.toFixed(2);
         // labelContainer.childNodes[i].innerHTML = classPrediction;
+
     }
 
-    if(prediction[0].probability > 0.9)
-        startGesture1 = true;
-    if(prediction[1].probability > 0.9)
-        startGesture2 = true;
+    if(gameStateGlobal == "start") {
+        if(prediction[0].probability > 0.9)
+            startGesture1 = true;
+        if(prediction[1].probability > 0.9)
+            startGesture2 = true;
+    }
 
-    
+    if(gameStateGlobal == "playing") {
+        document.querySelector("#currentObject").innerHTML = currentObject;
+    }
 }
