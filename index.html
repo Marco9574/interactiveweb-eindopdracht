@@ -18,7 +18,7 @@
             text-align: center;
         }
 
-        .start {
+        #startScreen {
             order: 2;
             width: 50%;
         }
@@ -51,7 +51,7 @@
 
 <body>
 <div class="body-wrapper">
-    <div class="start">
+    <div id="startScreen" hidden>
         <div class="start-speler">
             <div class="border">✊ Speler 1</div>
             <div class="border">🤙 Speler 2</div>
@@ -64,6 +64,35 @@
             5. Je krijgt 3s om een correct object te tonen, anders is het aan de andere speler<br>
             6. Eerste tot 5 wint
         </p>
+    </div>
+
+    <div id="gameScreen" hidden>
+        <h2>Zoek een pen!</h2>
+
+        <div class="border">
+            ✊ Speler 1<br>
+            ●○○○○
+        </div>
+        <div class="border">
+            🤙 Speler 2<br>
+            ●○○○○
+        </div>
+
+        <p>Maak eerst jouw gebaar voordat je jouw object toont.</p>
+    </div>
+
+    <div id="endScreen">
+        <h2>Speler 1 wint!</h2>
+        <p>Maak samen het startgebaar om opnieuw te spelen</p>
+
+        <div class="border">
+            ✊ Speler 1<br>
+            ●●●●●
+        </div>
+        <div class="border">
+            🤙 Speler 2<br>
+            ●●○○○
+        </div>
     </div>
 
 
