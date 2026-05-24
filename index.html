@@ -3,14 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Object hunt</title>
+    <title>Object Hunt</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #353535;
+            color: white;
+            margin: 0;
+            padding: 0 20em;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .start {
+            order: 2;
+            width: 50%;
+        }
+
+        .tm {
+            width: 50%;
+        }
+
+        .body-wrapper {
+            display: flex;
+            align-items: center;
+        }
+
+        .border {
+            border: white solid 2px;
+            padding: 0.5em;
+            border-radius: 1em;
+        }
+
+        .start-speler {
+            display: flex;
+            justify-content: space-between;
+        }
+    </style>
 </head>
+
+<header>
+    <h1>Object Hunt</h1>
+</header>
+
 <body>
-    
-    <div>Teachable Machine Image Model</div>
-<button type="button" onclick="init()">Start</button>
-<div id="webcam-container"></div>
-<div id="label-container"></div>
+<div class="body-wrapper">
+    <div class="start">
+        <div class="start-speler">
+            <div class="border">✊ Speler 1</div>
+            <div class="border">🤙 Speler 2</div>
+        </div>
+
+        <p>1. Kies je gebaar (✊ / 🤙)<br>
+            2. Maak jullie startgebaar om te starten<br>
+            3. Zoek het object<br>
+            4. Toon jouw gebaar<br>
+            5. Je krijgt 3s om een correct object te tonen, anders is het aan de andere speler<br>
+            6. Eerste tot 5 wint
+        </p>
+    </div>
+
+
+
+
+<div class="tm">
+    <button type="button" onclick="init()">Start</button>
+    <div id="webcam-container"></div>
+    <div id="label-container"></div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
 <script type="text/javascript">
@@ -36,7 +99,7 @@
 
         // Convenience function to setup a webcam
         const flip = true; // whether to flip the webcam
-        webcam = new tmImage.Webcam(200, 200, flip); // width, height, flip
+        webcam = new tmImage.Webcam(350, 350, flip); // width, height, flip
         await webcam.setup(); // request access to the webcam
         await webcam.play();
         window.requestAnimationFrame(loop);
@@ -67,5 +130,6 @@
     }
 </script>
 
+</div>
 </body>
 </html>
